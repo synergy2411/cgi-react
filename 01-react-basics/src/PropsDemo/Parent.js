@@ -7,19 +7,23 @@ class Parent extends React.Component {
     { label: "Buy the pulses", status: "pending" },
     { label: "Read the books", status: "done" },
   ];
-  username = "Foo";
+  username = 34;
 
   onHandleClick = (childData) => {
-      console.log("Click listen by parent", childData);
-  }
+    console.log("Click listen by parent", childData);
+  };
 
   render() {
     return (
       <div>
         <p>This is Parent Component</p>
         <br />
-        <Child todos = {this.todos} username = {this.username} 
-            handleClick= {(childData) =>this.onHandleClick(childData)}/>
+        <Child
+          todos={this.todos}
+          // username={this.username}
+          handleClick={(childData) => this.onHandleClick(childData)}
+          // handleClick="Static Value"
+        />
       </div>
     );
   }
