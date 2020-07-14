@@ -1,6 +1,7 @@
 import React from 'react';
 import FunctionalComponent from './Jsx/FunctionalComponent';
 import ContainerComponent from './Jsx/ContainerComponent';
+import LifeCycleDemo from './LifeCycle/LifeCycleDemo';
 
 function App() {
   return (
@@ -10,6 +11,8 @@ function App() {
       <FunctionalComponent />
       <hr />
       <ContainerComponent />
+      <hr />
+      <LifeCycleDemo />
     </div>
   );
 }
