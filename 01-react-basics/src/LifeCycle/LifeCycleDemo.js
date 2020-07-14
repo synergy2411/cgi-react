@@ -28,8 +28,8 @@ class LifeCycleDemo extends React.Component {
       <div>
         <p>Life Cycle Demo in Progress...</p>
         <br />
-        My Drink : {this.state.drinks}
-        <button onClick={() => this.setState({ drinks: "Coffee" })}>
+        <p>My Drink : {this.state.drinks}</p>
+        <button onClick={() => this.setState({ drinks: this.state.drinks==="Tea"?"Coffee":"Tea" })}>
           Change My Drink
         </button>
       </div>
