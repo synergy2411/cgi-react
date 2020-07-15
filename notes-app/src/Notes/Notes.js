@@ -17,9 +17,34 @@ class Notes extends React.Component {
   }
 
   onSelectNote = (id) => {
-    console.log("SELECTED NOTE ", id);
+    // console.log("SELECTED NOTE ", id);
     this.setState({ selectedNote: id });
   };
+
+  onDelete = id => {
+    const position = this.state.notes.findIndex(note => note.id === id);
+    if(position >= 0){
+      const duplicateNotes = this.state.notes.filter(note => note.id !== id);
+      this.setState({
+        notes : duplicateNotes,
+        selectedNote : null
+      })
+    }
+  }
+
+  onEdit = note =>{ 
+    console.log(note);
+    // write the code to edit the item in state notes 
+    const position = this.state.notes.findIndex(n => n.id === note.id);
+    if(position >=0){
+      const duplicateNotes = [...this.state.notes];
+      duplicateNotes[position] = note;
+      this.setState({
+        notes : duplicateNotes,
+        selectedNote : null
+      })
+    }
+  }
 
   render() {
     const notes = this.state.notes.map((note) => {
@@ -38,7 +63,9 @@ class Notes extends React.Component {
         (n) => n.id === this.state.selectedNote
       );
 
-      editNote = <EditNote note={note} />;
+      editNote = <EditNote note={note} 
+                    onDelete={(id) => this.onDelete(id)}
+                    onEdit = {note => this.onEdit(note)} />;
     }
 
     return (
