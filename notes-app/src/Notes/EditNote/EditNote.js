@@ -13,6 +13,10 @@ class EditNote extends React.Component {
         this.props.onEdit(note);
     }
 
+    componentWillReceiveProps(nextProps){
+        this.setState({txtValue : nextProps.note.body});
+    }
+
   render() {
     return (
       <div className="col-sm-10 col-md-8 offset-sm-1 offset-md-2">
@@ -34,9 +38,8 @@ class EditNote extends React.Component {
                     </button>
                 </div>
               </div>
-            <p>{this.props.note.body} </p>
             <br />
-            <button className="btn btn-outline-danger" 
+            <button className="btn btn-outline-danger btn-block" 
                 onClick={() => this.props.onDelete(this.props.note.id)} >Delete</button>
           </div>
         </div>

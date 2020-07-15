@@ -1,6 +1,7 @@
 import React from "react";
 import Note from "./Note/Note";
 import EditNote from "./EditNote/EditNote";
+import AddNewForm from './AddNewForm/AddNewForm';
 
 class Notes extends React.Component {
   constructor() {
@@ -13,6 +14,7 @@ class Notes extends React.Component {
         { id: 4, title: "grocery", body: "buy the pulses" },
       ],
       selectedNote: null,
+      showAddNewItemForm : false
     };
   }
 
@@ -33,8 +35,6 @@ class Notes extends React.Component {
   }
 
   onEdit = note =>{ 
-    console.log(note);
-    // write the code to edit the item in state notes 
     const position = this.state.notes.findIndex(n => n.id === note.id);
     if(position >=0){
       const duplicateNotes = [...this.state.notes];
@@ -68,13 +68,31 @@ class Notes extends React.Component {
                     onEdit = {note => this.onEdit(note)} />;
     }
 
+    let addNewForm = null;
+    if(this.state.showAddNewItemForm){
+      // code for adding new form
+        addNewForm = <AddNewForm />
+    }
+
     return (
       <div className="container">
-        <p className="display-4 text-center">My Notes App</p>
-
+        <div className="row">
+          <div className="col-sm-10 col-md-10">
+          <p className="display-4 text-center">My Notes App</p>
+          </div>
+          <div className="col-sm-2 col-md-2">
+            <button className="btn btn-dark btn-block" 
+              onClick={() => this.setState({showAddNewItemForm : true})}>Add New Item</button>
+          </div>
+        </div>
+        
+        <br/>
         <div className="row">{notes}</div>
         <hr />
         <div className="row">{editNote}</div>
+        <div className="row">
+          {addNewForm}
+        </div>
       </div>
     );
   }
