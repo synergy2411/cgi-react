@@ -46,6 +46,15 @@ class Notes extends React.Component {
     }
   }
 
+  addNewItem =(title, body) => {
+    const note= { title, body, id : this.state.notes.length + 1};
+    const duplicateNotes = [...this.state.notes, note];
+    this.setState({
+      notes : duplicateNotes,
+      showAddNewItemForm : false
+    })
+  }
+
   render() {
     const notes = this.state.notes.map((note) => {
       return (
@@ -71,7 +80,7 @@ class Notes extends React.Component {
     let addNewForm = null;
     if(this.state.showAddNewItemForm){
       // code for adding new form
-        addNewForm = <AddNewForm />
+        addNewForm = <AddNewForm addNewNote={(title, body) =>this.addNewItem(title, body) }/>
     }
 
     return (
