@@ -1,7 +1,7 @@
-import React from "react";
+import React, {Component} from "react";
 import Child from "./Child";
 
-class Parent extends React.Component {
+class Parent extends Component {
   todos = [
     { label: "Buy insurance", status: "done" },
     { label: "Buy the pulses", status: "pending" },
