@@ -1,12 +1,4 @@
 import React, { useState } from "react";
-
-
-import FunctionalComponent from "./Jsx/FunctionalComponent";
-import ContainerComponent from "./Jsx/ContainerComponent";
-import LifeCycleDemo from "./LifeCycle/LifeCycleDemo";
-import Parent from "./PropsDemo/Parent";
-import StateParent from "./StateDemo/StateParent";
-import UseStateHookDemo from "./Hooks/UseStateHookDemo";
 import UseEffectHookDemo from "./Hooks/UseEffectHookDemo";
 
 function App() {

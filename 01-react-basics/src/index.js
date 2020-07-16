@@ -11,6 +11,7 @@ import UseStateHookDemo from "./Hooks/UseStateHookDemo";
 import LifeCycleDemo from "./LifeCycle/LifeCycleDemo";
 import Parent from "./PropsDemo/Parent";
 import StateParent from "./StateDemo/StateParent";
+import Courses from "./Courses/Courses";
 
 const routing = (
   <React.StrictMode>
@@ -21,16 +22,16 @@ const routing = (
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/container">Container</Link>
+            <Link to="/container/101">Container</Link>
           </li>
           <li>
-            <Link to="/functional">Functional</Link>
+            <Link to="/functional/iphone">Functional</Link>
           </li>
           <li>
             <Link to="/effecthook">useEffect</Link>
           </li>
           <li>
-            <Link to="/statehook">useState</Link>
+            <Link to="/statehook?page_no=99">useState</Link>
           </li>
           <li>
             <Link to="/props">Props</Link>
@@ -38,17 +39,19 @@ const routing = (
           <li>
             <Link to="/state">State</Link>
           </li>
+          <li><Link to="/courses">Courses</Link></li>
         </ul>
       </div>
       <Switch>
         <Route exact path="/" component={App} />
-        <Route path="/container" component={ContainerComponent} />
-        <Route path="/functional" component={FunctionalComponent} />
+        <Route path="/container/:id" component={ContainerComponent} />
+        <Route path="/functional/:name" component={FunctionalComponent} />
         <Route path="/effecthook" component={UseEffectHookDemo} />
         <Route path="/statehook" component={UseStateHookDemo} />
         <Route path="/lifecycle" component={LifeCycleDemo} />
         <Route path="/props" component={Parent} />
         <Route path="/state" component={StateParent} />
+        <Route path = "/courses" component={Courses}/>
         <Route render={() => <div>404 - Not Found</div>} />
       </Switch>
     </Router>

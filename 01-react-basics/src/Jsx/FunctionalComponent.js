@@ -1,6 +1,10 @@
 import React from "react";
+import { useParams } from 'react-router-dom';
 
-function FunctionalComponent(){
+function FunctionalComponent(props){
+    console.log("PROPS : ", props);
+    console.log("USE PARAMS : ", useParams());
+
  return (
  <div>
      <p>Functional Component Demo....</p>
