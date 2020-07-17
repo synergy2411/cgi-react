@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ActionButtons from './ActionButtons/ActionButtons';
 import { connect } from 'react-redux';
+import Result from './Result/Result';
 
 class Counter extends Component{
 
@@ -24,6 +25,9 @@ class Counter extends Component{
 
                 <ActionButtons />
 
+                <hr/>
+                <Result />
+
             </div>
         )
     }
@@ -36,7 +40,7 @@ class Counter extends Component{
 
 const mapStateToProps = (state) => {
     return {
-        counter : state.counter
+        counter : state.ctr.counter
     }
 }
 

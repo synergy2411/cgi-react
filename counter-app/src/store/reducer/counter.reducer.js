@@ -1,10 +1,9 @@
 import * as counterActions from '../action/counterAction';
 const initialState = {
-    counter : 0,
-    result : []
+    counter : 0
 }
 
-const rootReducer = (state = initialState, action) => {
+const counterReducer = (state = initialState, action) => {
 
     switch(action.type){
         case counterActions.INCREMENT:{
@@ -31,16 +30,10 @@ const rootReducer = (state = initialState, action) => {
                 counter : state.counter - action.value
             }
         }
-        case counterActions.STORE_RESULT :{
-            return {
-                ...state,
-                result : [...state.result, state.counter]
-            }
-        }
         default :{
             return state;
         }
     }
 }
 
-export default rootReducer;
+export default counterReducer;

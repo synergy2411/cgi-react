@@ -8,10 +8,10 @@
 // }
 
 
-const logger = store => next => action => {
+const myLogger = myStore => next => action => {
     // write the side-effect
     console.log("[Logger Works]");
-    console.log("[STATE]", store.getState());
+    console.log("[STATE]", myStore.getState());
     console.log("[ACTION]", action);
     // The action supplied to the next() function will reach to the reducer
     setTimeout(() => {
@@ -20,4 +20,4 @@ const logger = store => next => action => {
     
   }
 
-  export default logger;
+  export default myLogger;
