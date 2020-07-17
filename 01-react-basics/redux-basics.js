@@ -18,6 +18,10 @@ function rootReducer(prevState = initialState, action){
         return {
             counter : prevState.counter - 1
         }
+    }else if(action.type === "ADD"){
+        return {
+            counter : prevState.counter + action.value
+        }
     }
     return prevState;
 }
@@ -39,3 +43,4 @@ store.dispatch({type: "INCREMENT"})
 store.dispatch({type : "DECREMENT"})
 // console.log("STATE AFTER ACTION - DECREMENT : ", store.getState());
 
+store.dispatch({type : "ADD", value : 10});
