@@ -4,11 +4,13 @@ import Counter from './Component/Counter/Counter';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './store/reducer/rootReducer';
+import logger from './store/middleware/logger';
 
-const store = createStore(rootReducer);
+
+const store = createStore(rootReducer, applyMiddleware(logger));
 
 ReactDOM.render(
   <React.StrictMode>
